@@ -12,7 +12,7 @@ module ChefAPI
     end
 
     has_many :versions,
-      class_name: CookbookVersion,
+      class_name: Resource::CookbookVersion,
       rest_endpoint: '/?num_versions=all'
 
     class << self
