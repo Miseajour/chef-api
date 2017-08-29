@@ -99,6 +99,7 @@ module ChefAPI
     #
     def each(&block)
       collection.each do |id, url|
+        url = url['versions'].first['url'] if url['versions']
         object = cached(id) { klass.from_url(url, prefix) }
         block.call(object) if block
       end
